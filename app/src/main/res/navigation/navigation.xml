@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/f1">
+
+    <fragment
+        android:id="@+id/f1"
+        android:name="com.stew.kotlinjetpack.navigation.Test1Fragment"
+        tools:layout="@layout/fragment_test1"/>
+
+    <fragment
+        android:id="@+id/f2"
+        android:name="com.stew.kotlinjetpack.navigation.Test2Fragment"
+        tools:layout="@layout/fragment_test2"/>
+
+    <fragment
+        android:id="@+id/f3"
+        android:name="com.stew.kotlinjetpack.navigation.Test3Fragment"
+        tools:layout="@layout/fragment_test3"/>
+
+</navigation>
