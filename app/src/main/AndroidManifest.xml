@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".MainActivity"/>
         <activity android:name=".navigation.TestNavigationActivity" />
+        <activity android:name=".lifecycle.TestLifecycleActivity"/>
     </application>
 
 </manifest>
