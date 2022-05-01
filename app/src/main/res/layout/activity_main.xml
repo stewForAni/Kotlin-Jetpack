@@ -32,6 +32,6 @@
     <TextView
         android:id="@+id/tx3"
         style="@style/style_main_tx"
-        android:text="Test NA" />
+        android:text="LiveData Test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

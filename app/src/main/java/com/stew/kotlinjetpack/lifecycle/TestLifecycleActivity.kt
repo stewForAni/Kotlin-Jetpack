@@ -22,31 +22,31 @@ class TestLifecycleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_lifecycle)
     }
 
-    //    override fun onStart() {
-//        super.onStart()
-//        Log.d(TAG, "onStart: " + lifecycle.currentState)
-//    }
-//
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart: " + lifecycle.currentState)
+    }
+
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume: " + lifecycle.currentState)
         lifecycle.addObserver(MyObserver())
     }
-//
-//    override fun onPause() {
-//        super.onPause()
-//        Log.d(TAG, "onPause: " + lifecycle.currentState)
-//    }
-//
-//    override fun onStop() {
-//        super.onStop()
-//        Log.d(TAG, "onStop: " + lifecycle.currentState)
-//    }
-//
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        Log.d(TAG, "onDestroy: " + lifecycle.currentState)
-//    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: " + lifecycle.currentState)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop: " + lifecycle.currentState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy: " + lifecycle.currentState)
+    }
 
     class MyObserver : LifecycleObserver {
 
