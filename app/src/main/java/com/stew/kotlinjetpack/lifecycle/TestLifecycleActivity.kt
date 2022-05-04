@@ -20,6 +20,7 @@ class TestLifecycleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lifecycle)
+        lifecycle.addObserver(MyObserver())
     }
 
     override fun onStart() {
@@ -30,7 +31,6 @@ class TestLifecycleActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume: " + lifecycle.currentState)
-        lifecycle.addObserver(MyObserver())
     }
 
     override fun onPause() {
@@ -50,35 +50,30 @@ class TestLifecycleActivity : AppCompatActivity() {
 
     class MyObserver : LifecycleObserver {
 
-
         @OnLifecycleEvent(value = Lifecycle.Event.ON_CREATE)
         fun fun1(owner: LifecycleOwner) {
             Log.d("TestLifecycleActivity", "ON_CREATE")
         }
-
         @OnLifecycleEvent(value = Lifecycle.Event.ON_START)
         fun fun0(owner: LifecycleOwner) {
             Log.d("TestLifecycleActivity", "ON_START")
         }
-
         @OnLifecycleEvent(value = Lifecycle.Event.ON_RESUME)
         fun fun2(owner: LifecycleOwner) {
             Log.d("TestLifecycleActivity", "ON_RESUME")
         }
-
         @OnLifecycleEvent(value = Lifecycle.Event.ON_PAUSE)
         fun fun3() {
             Log.d("TestLifecycleActivity", "ON_PAUSE")
         }
-
         @OnLifecycleEvent(value = Lifecycle.Event.ON_STOP)
         fun fun4() {
             Log.d("TestLifecycleActivity", "ON_STOP")
         }
+        @OnLifecycleEvent(value = Lifecycle.Event.ON_DESTROY)
+        fun fun5() {
+            Log.d("TestLifecycleActivity", "ON_DESTROY")
+        }
 
-//        @OnLifecycleEvent(value = Lifecycle.Event.ON_ANY)
-//        fun any(owner: LifecycleOwner, event: Lifecycle.Event) {
-//            Log.d("TestLifecycleActivity", "any1: " + owner.lifecycle.currentState + " / " + event.name)
-//        }
     }
 }

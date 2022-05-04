@@ -10,14 +10,19 @@ import java.lang.System.currentTimeMillis
  * mail: stewforani@gmail.com
  */
 class MyLiveData : LiveData<String>() {
+
     override fun onActive() {
         super.onActive()
-        value = "onActive"+ currentTimeMillis()
+        Log.d("TestLiveDataActivity", "-- onActive --")
     }
 
     override fun onInactive() {
         super.onInactive()
-        Log.d("TestLiveDataActivity", "onInactive")
+        Log.d("TestLiveDataActivity", "-- onInactive --")
+    }
+
+    public override fun setValue(value: String?) {
+        super.setValue(value)
     }
 
     companion object {
@@ -28,6 +33,8 @@ class MyLiveData : LiveData<String>() {
             sInstance = if (this::sInstance.isInitialized) sInstance else MyLiveData()
             return sInstance
         }
-
     }
+
 }
+
+
