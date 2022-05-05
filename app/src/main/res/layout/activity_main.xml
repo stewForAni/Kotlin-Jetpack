@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:constraint_referenced_ids="tx1,tx2,tx3"
+        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5"
         app:flow_horizontalGap="0dp"
         app:flow_verticalGap="20dp"
         app:flow_wrapMode="chain"
@@ -34,5 +34,15 @@
         android:id="@+id/tx3"
         style="@style/style_main_tx"
         android:text="LiveData Test" />
+
+    <TextView
+        android:id="@+id/tx4"
+        style="@style/style_main_tx"
+        android:text="LiveData Transformations" />
+
+    <TextView
+        android:id="@+id/tx5"
+        style="@style/style_main_tx"
+        android:text="ViewModel Test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

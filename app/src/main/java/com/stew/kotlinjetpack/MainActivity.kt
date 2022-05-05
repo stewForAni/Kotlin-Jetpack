@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.TextView
 import com.stew.kotlinjetpack.lifecycle.TestLifecycleActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataActivity
+import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
 import com.stew.kotlinjetpack.navigation.TestNavigationActivity
+import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +25,14 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tx3).setOnClickListener {
             startActivity(Intent(this, TestLiveDataActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx4).setOnClickListener {
+            startActivity(Intent(this, TestLiveDataTransformationsActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx5).setOnClickListener {
+            startActivity(Intent(this, TestViewModelActivity::class.java))
         }
 
     }

@@ -17,11 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".navigation.TestNavigationActivity" />
-        <activity android:name=".lifecycle.TestLifecycleActivity"/>
-        <activity android:name=".livedata.TestLiveDataActivity"/>
-
+        <activity android:name=".lifecycle.TestLifecycleActivity" />
+        <activity android:name=".livedata.TestLiveDataActivity" />
+        <activity android:name=".livedata.TestLiveDataTransformationsActivity" />
+        <activity android:name=".viewmodel.TestViewModelActivity"/>
     </application>
 
 </manifest>

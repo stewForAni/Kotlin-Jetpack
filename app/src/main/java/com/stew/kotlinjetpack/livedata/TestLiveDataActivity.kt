@@ -15,9 +15,9 @@ class TestLiveDataActivity : AppCompatActivity() {
 
     val TAG = "TestLiveDataActivity"
 
-    private val livedata: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
+//    private val livedata: MutableLiveData<String> by lazy {
+//        MutableLiveData<String>()
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
