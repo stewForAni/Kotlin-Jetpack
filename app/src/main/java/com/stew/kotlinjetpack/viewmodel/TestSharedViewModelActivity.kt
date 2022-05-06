@@ -2,32 +2,20 @@ package com.stew.kotlinjetpack.viewmodel
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.stew.kotlinjetpack.R
 
 /**
- * Created by stew on 5/5/22.
+ * Created by stew on 5/6/22.
  * mail: stewforani@gmail.com
  */
-class TestViewModelActivity : AppCompatActivity() {
-
-    val TAG = "TestViewModelActivity"
-    val myViewModel: MyViewModel by viewModels()
+class TestSharedViewModelActivity : AppCompatActivity() {
+    val TAG = "TestSharedViewModel"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_viewmodel)
-        val name = findViewById<TextView>(R.id.name)
-
-        Log.d(TAG, "myViewModel: $myViewModel")
-        Log.d(TAG, "onCreate: / " + System.currentTimeMillis())
-
-        myViewModel.getUserData().observe(this, {
-            Log.d(TAG, "observe:" + it.toString() + " / " + System.currentTimeMillis())
-            name.text = it.toString()
-        })
+        setContentView(R.layout.activity_shared_viewmodel)
+        Log.d(TAG, "onCreate: ")
     }
 
     override fun onStart() {

@@ -20,6 +20,8 @@ class MyViewModel : ViewModel() {
         Thread {
             Thread.sleep(3000)
             userData.postValue(listOf("Stew", "Helen", "Bob", "Lucy"))
+            Thread.sleep(3000)
+            userData.postValue(listOf("Stew", "Helen", "Bob"))
         }.start()
     }
 
@@ -28,3 +30,7 @@ class MyViewModel : ViewModel() {
     }
 
 }
+
+
+
+
