@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5,tx6"
+        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5,tx6,tx7"
         app:flow_horizontalGap="0dp"
         app:flow_verticalGap="20dp"
         app:flow_wrapMode="chain"
@@ -49,5 +49,10 @@
         android:id="@+id/tx6"
         style="@style/style_main_tx"
         android:text="Shared ViewModel Test" />
+
+    <TextView
+        android:id="@+id/tx7"
+        style="@style/style_main_tx"
+        android:text="MVVM AAC Test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

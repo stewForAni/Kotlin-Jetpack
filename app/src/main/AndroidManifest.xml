@@ -24,6 +24,7 @@
         <activity android:name=".livedata.TestLiveDataTransformationsActivity" />
         <activity android:name=".viewmodel.TestViewModelActivity"/>
         <activity android:name=".viewmodel.TestSharedViewModelActivity"/>
+        <activity android:name=".mvvmsample.TestUserActivity"/>
     </application>
 
 </manifest>

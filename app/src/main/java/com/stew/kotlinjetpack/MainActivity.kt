@@ -7,6 +7,7 @@ import android.widget.TextView
 import com.stew.kotlinjetpack.lifecycle.TestLifecycleActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
+import com.stew.kotlinjetpack.mvvmsample.TestUserActivity
 import com.stew.kotlinjetpack.navigation.TestNavigationActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
 import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tx6).setOnClickListener {
             startActivity(Intent(this, TestSharedViewModelActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx7).setOnClickListener {
+            startActivity(Intent(this, TestUserActivity::class.java))
         }
 
     }
