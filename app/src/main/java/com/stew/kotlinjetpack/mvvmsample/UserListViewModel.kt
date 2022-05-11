@@ -1,6 +1,6 @@
 package com.stew.kotlinjetpack.mvvmsample
 
-import androidx.annotation.MainThread
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -10,27 +10,38 @@ import androidx.lifecycle.ViewModel
  */
 class UserListViewModel : ViewModel() {
 
-    private val userList: MutableLiveData<List<User>> by lazy {
-        MutableLiveData<List<User>>()
+    private val userList: MutableLiveData<MutableList<User>> by lazy {
+        MutableLiveData<MutableList<User>>()
     }
 
     private val isLoading: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
     }
 
-    fun getUserLiveData(): MutableLiveData<List<User>> {
+    fun getUserLiveData(): LiveData<MutableList<User>> {
         return userList
     }
 
-    fun getLoadingLiveData(): MutableLiveData<Boolean> {
+    fun getLoadingLiveData(): LiveData<Boolean> {
         return isLoading
+    }
+
+    fun addUserData() {
+        val tmp = userList.value
+        tmp?.add(User("bob", "99"))
+        userList.value = tmp
+    }
+
+    fun deleteUserData() {
+        val tmp = userList.value
+        tmp?.removeAt(0)
+        userList.value = tmp
     }
 
     fun getUserData() {
         isLoading.value = true
-
-        UserRepository.get().getUserFromServer(object :DataCallBack<List<User>>{
-            override fun onSuccess(data: List<User>) {
+        UserRepository.get().getUserFromServer(object : DataCallBack<MutableList<User>> {
+            override fun onSuccess(data: MutableList<User>) {
                 userList.postValue(data)
                 isLoading.postValue(false)
             }
@@ -40,5 +51,4 @@ class UserListViewModel : ViewModel() {
             }
         })
     }
-
 }

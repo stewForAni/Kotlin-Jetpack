@@ -11,7 +11,6 @@ class UserRepository {
 
     companion object {
         lateinit var sInstance: UserRepository
-
         @MainThread
         fun get(): UserRepository {
             sInstance = if (this::sInstance.isInitialized) sInstance else UserRepository()
@@ -19,16 +18,12 @@ class UserRepository {
         }
     }
 
-
-    fun getUserFromServer(c: DataCallBack<List<User>>) {
+    fun getUserFromServer(c: DataCallBack<MutableList<User>>) {
         Thread {
             Thread.sleep(2000)
             val list = ArrayList<User>()
             for (index in 1..10) {
-                val a = User()
-                a.name = "stew"
-                a.age = "30"
-                list.add(a)
+                list.add(User("stew","30"))
             }
             c.onSuccess(list)
             //存本地数据库
@@ -37,13 +32,8 @@ class UserRepository {
     }
 
     //从本地数据库获取
-    fun getUsersFromLocal() {
-
-    }
-
+    fun getUsersFromLocal() {}
     //存入本地数据库 (从服务端获取数据后可以调用)
-    fun saveUsersToLocal() {
-
-    }
-
+    fun saveUsersToLocal() {}
 }
+

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.stew.kotlinjetpack.databinding.TestDataBindingActivity
 import com.stew.kotlinjetpack.lifecycle.TestLifecycleActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tx7).setOnClickListener {
             startActivity(Intent(this, TestUserActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx8).setOnClickListener {
+            startActivity(Intent(this, TestDataBindingActivity::class.java))
         }
 
     }

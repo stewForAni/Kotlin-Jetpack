@@ -21,11 +21,16 @@ class TestUserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user)
 
         userModel.getUserLiveData().observe(this, {
-            findViewById<TextView>(R.id.user).text = it.toString()
+            var s = ""
+            for (item in it) {
+                s = s + item.name + " / " + item.age + "\n"
+            }
+            findViewById<TextView>(R.id.user).text = s
         })
 
         userModel.getLoadingLiveData().observe(this, {
-            findViewById<ProgressBar>(R.id.progressBar).visibility = if (it) View.VISIBLE else View.GONE
+            findViewById<ProgressBar>(R.id.progressBar).visibility =
+                if (it) View.VISIBLE else View.GONE
         })
 
         userModel.getUserData()
