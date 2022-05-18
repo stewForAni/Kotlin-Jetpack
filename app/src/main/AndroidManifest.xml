@@ -26,6 +26,7 @@
         <activity android:name=".viewmodel.TestSharedViewModelActivity"/>
         <activity android:name=".mvvmsample.TestUserActivity"/>
         <activity android:name=".databinding.TestDataBindingActivity"/>
+        <activity android:name=".coroutine.TestCoroutineActivity"/>
     </application>
 
 </manifest>
