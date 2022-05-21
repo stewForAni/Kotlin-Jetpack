@@ -20,26 +20,25 @@ object RetrofitManager {
     }
 
     init {
-
         val loggingInterceptor = HttpLoggingInterceptor {
             Log.d("http log : ", it)
         }.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val okClient = OkHttpClient().newBuilder()
-            .callTimeout(10, TimeUnit.SECONDS)
-            .connectTimeout(10, TimeUnit.SECONDS)
-            .readTimeout(10, TimeUnit.SECONDS)
-            .writeTimeout(10, TimeUnit.SECONDS)
-            .retryOnConnectionFailure(true)
-            .followRedirects(false)
-            .addInterceptor(loggingInterceptor)
-            .build()
+                .callTimeout(10, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .followRedirects(false)
+                .addInterceptor(loggingInterceptor)
+                .build()
 
         val retrofit = Retrofit.Builder()
-            .client(okClient)
-            .baseUrl(Apis.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+                .client(okClient)
+                .baseUrl(Apis.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
         apis = retrofit.create(Apis::class.java)
     }

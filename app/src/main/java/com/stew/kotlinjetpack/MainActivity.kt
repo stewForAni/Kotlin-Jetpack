@@ -12,8 +12,10 @@ import com.stew.kotlinjetpack.livedata.TestLiveDataActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
 import com.stew.kotlinjetpack.mvvmsample.TestUserActivity
 import com.stew.kotlinjetpack.navigation.TestNavigationActivity
+import com.stew.kotlinjetpack.recyclerview.TestRecyclerViewActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
 import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
+import com.stew.kotlinjetpack.viewpager.TestViewPagerActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +56,14 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tx9).setOnClickListener {
             startActivity(Intent(this, TestCoroutineActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx10).setOnClickListener {
+            startActivity(Intent(this, TestViewPagerActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx11).setOnClickListener {
+            startActivity(Intent(this, TestRecyclerViewActivity::class.java))
         }
 
     }

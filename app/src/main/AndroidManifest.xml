@@ -27,6 +27,8 @@
         <activity android:name=".mvvmsample.TestUserActivity"/>
         <activity android:name=".databinding.TestDataBindingActivity"/>
         <activity android:name=".coroutine.TestCoroutineActivity"/>
+        <activity android:name=".viewpager.TestViewPagerActivity"/>
+        <activity android:name=".recyclerview.TestRecyclerViewActivity"/>
     </application>
 
 </manifest>

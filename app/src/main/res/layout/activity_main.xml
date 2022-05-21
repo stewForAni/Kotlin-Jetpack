@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5,tx6,tx7,tx8,tx9"
+        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5,tx6,tx7,tx8,tx9,tx10,tx11"
         app:flow_horizontalGap="0dp"
         app:flow_verticalGap="20dp"
         app:flow_wrapMode="chain"
@@ -64,5 +64,15 @@
         android:id="@+id/tx9"
         style="@style/style_main_tx"
         android:text="Coroutine Test" />
+
+    <TextView
+        android:id="@+id/tx10"
+        style="@style/style_main_tx"
+        android:text="ViewPager+Fragment Test" />
+
+    <TextView
+        android:id="@+id/tx11"
+        style="@style/style_main_tx"
+        android:text="RecyclerView Test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

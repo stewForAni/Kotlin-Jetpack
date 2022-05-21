@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.stew.kotlinjetpack.R
+import com.stew.kotlinjetpack.apisample.Apis
 import com.stew.kotlinjetpack.apisample.RetrofitManager
 import kotlinx.coroutines.*
 
@@ -13,8 +14,10 @@ import kotlinx.coroutines.*
  */
 class TestCoroutineActivity : AppCompatActivity() {
     val TAG = "TestCoroutineActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: ")
         setContentView(R.layout.activity_coroutine)
 
 //        runBlocking {
@@ -57,13 +60,5 @@ class TestCoroutineActivity : AppCompatActivity() {
 //        }
 
 
-
-        runBlocking {
-            Log.d(TAG, "runBlocking: 1" + Thread.currentThread())
-            val job = launch {
-            RetrofitManager.getApisTool().loadProjectTree()
-            }
-            Log.d(TAG, "runBlocking: 2" + Thread.currentThread())
-        }
     }
 }
