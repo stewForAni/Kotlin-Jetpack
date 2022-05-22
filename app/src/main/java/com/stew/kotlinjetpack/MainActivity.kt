@@ -13,6 +13,7 @@ import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
 import com.stew.kotlinjetpack.mvvmsample.TestUserActivity
 import com.stew.kotlinjetpack.navigation.TestNavigationActivity
 import com.stew.kotlinjetpack.recyclerview.TestRecyclerViewActivity
+import com.stew.kotlinjetpack.room.TestRoomActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
 import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
 import com.stew.kotlinjetpack.viewpager.TestViewPagerActivity
@@ -64,6 +65,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tx11).setOnClickListener {
             startActivity(Intent(this, TestRecyclerViewActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx12).setOnClickListener {
+            startActivity(Intent(this, TestRoomActivity::class.java))
         }
 
     }

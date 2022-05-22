@@ -29,6 +29,7 @@
         <activity android:name=".coroutine.TestCoroutineActivity"/>
         <activity android:name=".viewpager.TestViewPagerActivity"/>
         <activity android:name=".recyclerview.TestRecyclerViewActivity"/>
+        <activity android:name=".room.TestRoomActivity"/>
     </application>
 
 </manifest>

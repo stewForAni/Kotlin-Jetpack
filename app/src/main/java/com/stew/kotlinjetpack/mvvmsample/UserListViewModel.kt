@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * Created by stew on 5/10/22.
@@ -53,6 +54,10 @@ class UserListViewModel : ViewModel() {
                 isLoading.postValue(false)
             }
         })
+
+        viewModelScope.launch(Dispatchers.IO) {
+
+        }
     }
 
 }

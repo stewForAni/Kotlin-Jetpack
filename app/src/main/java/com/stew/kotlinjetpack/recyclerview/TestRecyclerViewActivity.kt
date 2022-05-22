@@ -1,6 +1,7 @@
 package com.stew.kotlinjetpack.recyclerview
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,11 +20,29 @@ class TestRecyclerViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
         for (item in 0..20) {
-            list.add(Info("stew$item", R.mipmap.ic_launcher))
+            list.add(Info(item, "stew_$item", R.mipmap.ic_launcher))
         }
-        val binding: ActivityRecyclerBinding = DataBindingUtil.setContentView(this, R.layout.activity_recycler)
+        val binding: ActivityRecyclerBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_recycler)
         binding.recycler.layoutManager = LinearLayoutManager(this)
-        binding.recycler.adapter = RecyclerAdapter(this, list)
+        val a = RecyclerAdapter()
+        binding.recycler.adapter = a
+        a.setData(list)
+
+        var i: Int = 1
+
+        binding.floatingActionButton.setOnClickListener {
+            val newList = mutableListOf<Info>()
+            for (item in 0..20) {
+                newList.add(Info(item, "stew_$item", R.mipmap.ic_launcher))
+            }
+            newList[i].name = "Bob$i"
+            newList[i + 1].name = "Bob${i + 1}"
+            newList[i + 2].name = "Bob${i + 2}"
+            a.setData(newList)
+            i++
+        }
+
     }
 
 }

@@ -5,6 +5,7 @@ package com.stew.kotlinjetpack.recyclerview
  * mail: stewforani@gmail.com
  */
 data class Info(
+        var id:Int,
         var name:String,
         var image:Int
         )
