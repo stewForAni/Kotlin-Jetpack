@@ -67,4 +67,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     // room针对kotlin协程功能的扩展库
     implementation "androidx.room:room-ktx:$room_version"
+
+
+    //paging3
+    def paging_version = "3.0.0-beta01"
+    implementation "androidx.paging:paging-runtime:$paging_version"
 }

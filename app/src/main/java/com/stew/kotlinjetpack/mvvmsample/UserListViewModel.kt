@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * Created by stew on 5/10/22.
@@ -44,7 +43,7 @@ class UserListViewModel : ViewModel() {
 
     fun getUserData() {
         isLoading.value = true
-        UserRepository.get().getUserFromServer(object : DataCallBack<MutableList<User>> {
+        UserRepository.getUserFromServer(object : DataCallBack<MutableList<User>> {
             override fun onSuccess(data: MutableList<User>) {
                 userList.postValue(data)
                 isLoading.postValue(false)
@@ -55,9 +54,7 @@ class UserListViewModel : ViewModel() {
             }
         })
 
-        viewModelScope.launch(Dispatchers.IO) {
 
-        }
     }
 
 }

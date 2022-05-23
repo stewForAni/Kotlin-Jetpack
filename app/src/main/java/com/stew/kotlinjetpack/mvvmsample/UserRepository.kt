@@ -7,16 +7,16 @@ import androidx.annotation.MainThread
  * Created by stew on 5/10/22.
  * mail: stewforani@gmail.com
  */
-class UserRepository {
+object UserRepository {
 
-    companion object {
-        lateinit var sInstance: UserRepository
-        @MainThread
-        fun get(): UserRepository {
-            sInstance = if (this::sInstance.isInitialized) sInstance else UserRepository()
-            return sInstance
-        }
-    }
+//    companion object {
+//        lateinit var sInstance: UserRepository
+//        @MainThread
+//        fun get(): UserRepository {
+//            sInstance = if (this::sInstance.isInitialized) sInstance else UserRepository()
+//            return sInstance
+//        }
+//    }
 
     fun getUserFromServer(c: DataCallBack<MutableList<User>>) {
         Thread {

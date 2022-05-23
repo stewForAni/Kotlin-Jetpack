@@ -52,8 +52,8 @@ class RecyclerAdapter() :
         var image: ImageView? = null
 
         init {
-            name = item.findViewById<TextView>(R.id.textView)
-            image = item.findViewById<ImageView>(R.id.imageView)
+            name = item.findViewById(R.id.textView)
+            image = item.findViewById(R.id.imageView)
         }
     }
 

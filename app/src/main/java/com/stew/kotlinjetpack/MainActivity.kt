@@ -7,11 +7,13 @@ import android.widget.TextView
 import com.stew.kotlinjetpack.apisample.RetrofitManager
 import com.stew.kotlinjetpack.coroutine.TestCoroutineActivity
 import com.stew.kotlinjetpack.databinding.TestDataBindingActivity
+import com.stew.kotlinjetpack.flow.TestFlowActivity
 import com.stew.kotlinjetpack.lifecycle.TestLifecycleActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataActivity
 import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
 import com.stew.kotlinjetpack.mvvmsample.TestUserActivity
 import com.stew.kotlinjetpack.navigation.TestNavigationActivity
+import com.stew.kotlinjetpack.paging3.TestPaging3Activity
 import com.stew.kotlinjetpack.recyclerview.TestRecyclerViewActivity
 import com.stew.kotlinjetpack.room.TestRoomActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
@@ -71,5 +73,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, TestRoomActivity::class.java))
         }
 
+        findViewById<TextView>(R.id.tx13).setOnClickListener {
+            startActivity(Intent(this, TestPaging3Activity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx14).setOnClickListener {
+            startActivity(Intent(this, TestFlowActivity::class.java))
+        }
     }
 }

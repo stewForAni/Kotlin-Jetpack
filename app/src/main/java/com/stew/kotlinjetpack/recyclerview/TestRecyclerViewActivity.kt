@@ -18,7 +18,6 @@ class TestRecyclerViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler)
         for (item in 0..20) {
             list.add(Info(item, "stew_$item", R.mipmap.ic_launcher))
         }

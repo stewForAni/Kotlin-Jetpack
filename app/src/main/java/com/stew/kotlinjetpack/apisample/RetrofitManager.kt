@@ -36,7 +36,7 @@ object RetrofitManager {
 
         val retrofit = Retrofit.Builder()
                 .client(okClient)
-                .baseUrl(Apis.BASE_URL)
+                .baseUrl(Apis.GITHUB_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

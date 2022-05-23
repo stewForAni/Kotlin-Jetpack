@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stew.kotlinjetpack">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,14 +23,16 @@
         <activity android:name=".lifecycle.TestLifecycleActivity" />
         <activity android:name=".livedata.TestLiveDataActivity" />
         <activity android:name=".livedata.TestLiveDataTransformationsActivity" />
-        <activity android:name=".viewmodel.TestViewModelActivity"/>
-        <activity android:name=".viewmodel.TestSharedViewModelActivity"/>
-        <activity android:name=".mvvmsample.TestUserActivity"/>
-        <activity android:name=".databinding.TestDataBindingActivity"/>
-        <activity android:name=".coroutine.TestCoroutineActivity"/>
-        <activity android:name=".viewpager.TestViewPagerActivity"/>
-        <activity android:name=".recyclerview.TestRecyclerViewActivity"/>
-        <activity android:name=".room.TestRoomActivity"/>
+        <activity android:name=".viewmodel.TestViewModelActivity" />
+        <activity android:name=".viewmodel.TestSharedViewModelActivity" />
+        <activity android:name=".mvvmsample.TestUserActivity" />
+        <activity android:name=".databinding.TestDataBindingActivity" />
+        <activity android:name=".coroutine.TestCoroutineActivity" />
+        <activity android:name=".viewpager.TestViewPagerActivity" />
+        <activity android:name=".recyclerview.TestRecyclerViewActivity" />
+        <activity android:name=".room.TestRoomActivity" />
+        <activity android:name=".paging3.TestPaging3Activity" />
+        <activity android:name=".flow.TestFlowActivity" />
     </application>
 
 </manifest>
