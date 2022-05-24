@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
  */
 object GithubRepository {
 
-    private const val PAGE_SIZE = 20
+    private const val PAGE_SIZE = 5
 
     fun getData(): Flow<PagingData<GithubProjectItem>> {
         return Pager(

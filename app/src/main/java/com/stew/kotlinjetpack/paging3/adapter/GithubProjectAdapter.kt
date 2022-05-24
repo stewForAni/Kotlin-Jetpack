@@ -15,7 +15,7 @@ import com.stew.kotlinjetpack.paging3.GithubProjectItem
  * mail: stewforani@gmail.com
  */
 class GithubProjectAdapter :
-    PagingDataAdapter<GithubProjectItem, GithubProjectAdapter.MyViewHolder>(DiffCallback()) {
+        PagingDataAdapter<GithubProjectItem, GithubProjectAdapter.MyViewHolder>(DiffCallback()) {
 
     class DiffCallback : DiffUtil.ItemCallback<GithubProjectItem>() {
         override fun areItemsTheSame(oldItem: GithubProjectItem, newItem: GithubProjectItem): Boolean {
@@ -39,13 +39,13 @@ class GithubProjectAdapter :
         if (data != null) {
             holder.name.text = data.name
             holder.desc.text = data.description
-            holder.star.text = data.stargazers_count.toString()
+            holder.star.text = "Star: " + data.stargazers_count.toString()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.github_item, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.github_item, parent, false)
         )
     }
 }
