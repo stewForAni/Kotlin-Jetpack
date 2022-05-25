@@ -7,17 +7,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import androidx.paging.LoadState
-import androidx.paging.PagingSource
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stew.kotlinjetpack.R
 import com.stew.kotlinjetpack.databinding.ActivityPagingBinding
-import com.stew.kotlinjetpack.paging3.adapter.FooterAdapter
+import com.stew.kotlinjetpack.paging3.adapter.LoadingDataAdapter
 import com.stew.kotlinjetpack.paging3.adapter.GithubProjectAdapter
-import com.stew.kotlinjetpack.paging3.adapter.HeadAdapter
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -36,7 +32,9 @@ class TestPaging3Activity : AppCompatActivity() {
         val lm = LinearLayoutManager(this)
         val adapter = GithubProjectAdapter()
         binding.recyclerView.layoutManager = lm
-        binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(header = FooterAdapter(adapter), footer = FooterAdapter(adapter))
+        binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+                header = LoadingDataAdapter(adapter),
+                footer = LoadingDataAdapter(adapter))
 
         lifecycleScope.launch(Dispatchers.IO) {
             githubViewModel.getData().collect {
@@ -56,7 +54,9 @@ class TestPaging3Activity : AppCompatActivity() {
                     binding.progressbar.visibility = View.VISIBLE
                 }
                 is LoadState.Error -> {
-                    Toast.makeText(this, "Load Error: ${(it.refresh as LoadState.Error).error.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,
+                            "Load Error: ${(it.refresh as LoadState.Error).error.message}",
+                            Toast.LENGTH_SHORT).show()
                 }
             }
         }
