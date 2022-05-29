@@ -75,24 +75,24 @@ class TestFlowActivity : AppCompatActivity() {
 //        }
 
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val f = flow {
-                emit(1)
-                delay(1000)
-                emit(2)
-                delay(1000)
-                emit(3)
-                delay(1000)
-            }
-
-            val a = withTimeoutOrNull(4000) {
-                f.collect {
-                    Log.d(TAG, "f.collect: $it")
-                }
-            }
-
-            Log.d(TAG, "flow end $a")
-        }
+//        lifecycleScope.launch(Dispatchers.IO) {
+//            val f = flow {
+//                emit(1)
+//                delay(1000)
+//                emit(2)
+//                delay(1000)
+//                emit(3)
+//                delay(1000)
+//            }
+//
+//            val a = withTimeoutOrNull(4000) {
+//                f.collect {
+//                    Log.d(TAG, "f.collect: $it")
+//                }
+//            }
+//
+//            Log.d(TAG, "flow end $a")
+//        }
 
     }
 }

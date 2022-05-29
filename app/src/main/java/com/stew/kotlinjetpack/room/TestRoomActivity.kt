@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.stew.kotlinjetpack.R
+import com.stew.kotlinjetpack.room.student.Student
 import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by stew on 5/21/22.
@@ -26,7 +26,6 @@ class TestRoomActivity : AppCompatActivity() {
             for(item in list){
                 Log.d("TestRoomActivity", "onCreate: "+item.id)
             }
-
 
         }
 

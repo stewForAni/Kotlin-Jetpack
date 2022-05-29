@@ -1,6 +1,7 @@
-package com.stew.kotlinjetpack.room
+package com.stew.kotlinjetpack.room.student
 
 import androidx.room.*
+import com.stew.kotlinjetpack.room.student.Student
 
 /**
  * Created by stew on 5/22/22.

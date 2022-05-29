@@ -1,4 +1,4 @@
-package com.stew.kotlinjetpack.room
+package com.stew.kotlinjetpack.room.student
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,5 +11,4 @@ import androidx.room.PrimaryKey
 class Student(var name: String, var age: String) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-
 }

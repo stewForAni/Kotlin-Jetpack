@@ -33,6 +33,7 @@
         <activity android:name=".room.TestRoomActivity" />
         <activity android:name=".paging3.TestPaging3Activity" />
         <activity android:name=".flow.TestFlowActivity" />
+        <activity android:name=".paging3RemoteMediator.TestRemoteMediatorActivity"/>
     </application>
 
 </manifest>

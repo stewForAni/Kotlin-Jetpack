@@ -14,6 +14,7 @@ import com.stew.kotlinjetpack.livedata.TestLiveDataTransformationsActivity
 import com.stew.kotlinjetpack.mvvmsample.TestUserActivity
 import com.stew.kotlinjetpack.navigation.TestNavigationActivity
 import com.stew.kotlinjetpack.paging3.TestPaging3Activity
+import com.stew.kotlinjetpack.paging3RemoteMediator.TestRemoteMediatorActivity
 import com.stew.kotlinjetpack.recyclerview.TestRecyclerViewActivity
 import com.stew.kotlinjetpack.room.TestRoomActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
@@ -79,6 +80,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tx14).setOnClickListener {
             startActivity(Intent(this, TestFlowActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.tx15).setOnClickListener {
+            startActivity(Intent(this, TestRemoteMediatorActivity::class.java))
         }
     }
 }

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5,tx6,tx7,tx8,tx9,tx10,tx11,tx12,tx13,tx14"
+        app:constraint_referenced_ids="tx1,tx2,tx3,tx4,tx5,tx6,tx7,tx8,tx9,tx10,tx11,tx12,tx13,tx15,tx14"
         app:flow_horizontalGap="0dp"
         app:flow_verticalGap="20dp"
         app:flow_wrapMode="chain"
@@ -86,8 +86,15 @@
         android:text="Paging3 Test" />
 
     <TextView
+        android:id="@+id/tx15"
+        style="@style/style_main_tx"
+        android:text="Paging3 with RemoteMediator Test" />
+
+    <TextView
         android:id="@+id/tx14"
         style="@style/style_main_tx"
         android:text="Flow Test" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
