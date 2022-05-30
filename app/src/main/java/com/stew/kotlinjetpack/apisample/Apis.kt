@@ -1,6 +1,7 @@
 package com.stew.kotlinjetpack.apisample
 
 import com.stew.kotlinjetpack.paging3.GithubProject
+import com.stew.kotlinjetpack.room.githubproject.GithubProjectList
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -23,4 +24,10 @@ interface Apis {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
     ): GithubProject
+
+    @GET("search/repositories?sort=stars&q=Android")
+    suspend fun getGithubProject2(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): GithubProjectList
 }

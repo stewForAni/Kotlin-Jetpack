@@ -11,11 +11,13 @@ object GithubRepository {
 
     private const val PAGE_SIZE = 5
 
+    private fun a(): GithubProjectPagingSource {
+        return GithubProjectPagingSource()
+    }
+
     fun getData(): Flow<PagingData<GithubProjectItem>> {
         return Pager(
-            PagingConfig(PAGE_SIZE), null, pagingSourceFactory = {
-                GithubProjectPagingSource()
-            }
+            PagingConfig(PAGE_SIZE), null, GithubRepository::a
         ).flow
     }
 

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.stew.kotlinjetpack.MyApp
 import com.stew.kotlinjetpack.room.githubproject.GithubProjectDao
 import com.stew.kotlinjetpack.room.githubproject.GithubProjectEntity
 import com.stew.kotlinjetpack.room.student.Student
@@ -23,13 +24,13 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase =
+        fun getInstance(): AppDatabase =
                 INSTANCE ?: synchronized(this) {
-                    INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+                    INSTANCE ?: buildDatabase().also { INSTANCE = it }
                 }
 
-        private fun buildDatabase(context: Context) =
-                Room.databaseBuilder(context.applicationContext,
+        private fun buildDatabase() =
+                Room.databaseBuilder(MyApp.getInstance(),
                         AppDatabase::class.java, "AppDatabase.db")
                         .build()
     }

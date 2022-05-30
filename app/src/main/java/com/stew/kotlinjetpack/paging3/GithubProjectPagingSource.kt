@@ -1,5 +1,6 @@
 package com.stew.kotlinjetpack.paging3
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.stew.kotlinjetpack.apisample.RetrofitManager
@@ -16,6 +17,7 @@ class GithubProjectPagingSource : PagingSource<Int, GithubProjectItem>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GithubProjectItem> {
         return try {
+            Log.d("PagingSource", "params.key: " + params.key)
             val page = params.key ?: 1 //从1开始，无法显示Header
             val pageSize = params.loadSize
             val response = RetrofitManager.getApisTool().getGithubProject(page, pageSize)

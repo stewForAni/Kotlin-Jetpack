@@ -13,10 +13,10 @@ interface GithubProjectDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(pokemonList: List<GithubProjectEntity>)
 
-    @Query("SELECT * FROM GithubProjectEntity")
+    @Query("SELECT * FROM GithubProjectTable")
     fun get(): PagingSource<Int, GithubProjectEntity>
 
-    @Query("DELETE FROM GithubProjectEntity")
+    @Query("DELETE FROM GithubProjectTable")
     suspend fun clear()
 
     @Delete

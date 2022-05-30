@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
  * Created by stew on 5/29/22.
  * mail: stewforani@gmail.com
  */
-@Entity(tableName = "GithubProjectEntity")
+@Entity(tableName = "GithubProjectTable")
 data class GithubProjectEntity(
         @PrimaryKey(autoGenerate = true)
         val databaseID: Int,

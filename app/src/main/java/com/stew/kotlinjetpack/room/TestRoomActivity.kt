@@ -18,10 +18,10 @@ class TestRoomActivity : AppCompatActivity() {
 
 
         CoroutineScope(Dispatchers.Main).launch(Dispatchers.IO) {
-            AppDatabase.getInstance(this@TestRoomActivity).StudentDao()
+            AppDatabase.getInstance().StudentDao()
                 .insertStudent(Student("stew", "30"))
 
-            var list = AppDatabase.getInstance(this@TestRoomActivity).StudentDao().getStudentList()
+            val list = AppDatabase.getInstance().StudentDao().getStudentList()
 
             for(item in list){
                 Log.d("TestRoomActivity", "onCreate: "+item.id)

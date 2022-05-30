@@ -12,10 +12,7 @@ import com.stew.kotlinjetpack.room.AppDatabase
  * Created by stew on 5/29/22.
  * mail: stewforani@gmail.com
  */
-class TestRemoteMediatorActivity(
-        val api: RetrofitManager,
-        val db: AppDatabase
-) : AppCompatActivity() {
+class TestRemoteMediatorActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityPagingBinding =
