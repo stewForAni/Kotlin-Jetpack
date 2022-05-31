@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import com.stew.kotlinjetpack.apisample.RetrofitManager
 import com.stew.kotlinjetpack.coroutine.TestCoroutineActivity
@@ -18,10 +19,14 @@ import com.stew.kotlinjetpack.navigation.TestNavigationActivity
 import com.stew.kotlinjetpack.paging3.TestPaging3Activity
 import com.stew.kotlinjetpack.paging3RemoteMediator.TestRemoteMediatorActivity
 import com.stew.kotlinjetpack.recyclerview.TestRecyclerViewActivity
+import com.stew.kotlinjetpack.room.AppDatabase
 import com.stew.kotlinjetpack.room.TestRoomActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
 import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
 import com.stew.kotlinjetpack.viewpager.TestViewPagerActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalPagingApi
@@ -93,6 +98,5 @@ class MainActivity : AppCompatActivity() {
 
         //kotlin test --------------------------------------------------------------------
     }
-
 
 }

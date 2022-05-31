@@ -17,7 +17,7 @@ import com.stew.kotlinjetpack.room.githubproject.GithubProjectEntity
 
 @OptIn(ExperimentalPagingApi::class)
 class MyRemoteMediator(
-    private val db: AppDatabase,
+        private val db: AppDatabase,
 ) : RemoteMediator<Int, GithubProjectEntity>() {
 
     val TAG = "MyRemoteMediator"
@@ -25,13 +25,11 @@ class MyRemoteMediator(
     private var nextKey = 0
 
     override suspend fun load(
-        loadType: LoadType,
-        state: PagingState<Int, GithubProjectEntity>,
+            loadType: LoadType,
+            state: PagingState<Int, GithubProjectEntity>,
     ): MediatorResult {
 
         try {
-
-
             val pageKey: Int? = when (loadType) {
                 LoadType.REFRESH -> {
                     Log.d(TAG, "LoadType.REFRESH")
@@ -42,7 +40,6 @@ class MyRemoteMediator(
                     return MediatorResult.Success(true)
                 }
                 LoadType.APPEND -> {
-                    Log.d(TAG, "LoadType.APPEND")
                     if (nextKey == -1) {
                         Log.d(TAG, "LoadType.APPEND 1")
                         return MediatorResult.Success(true)
@@ -52,11 +49,9 @@ class MyRemoteMediator(
                 }
             }
 
-
-
             val page = pageKey ?: 1
-            Log.d(TAG, "nextKey: $nextKey  pageKey: $pageKey page: $page")
-            val remoteData = RetrofitManager.getApisTool().getGithubProject2(page, 10).items
+
+            val remoteData = RetrofitManager.getApisTool().getGithubProject2(page, 20).items
             val isEnd = remoteData.isEmpty()
 
             if (loadType == LoadType.REFRESH) {
@@ -64,11 +59,13 @@ class MyRemoteMediator(
             }
 
             nextKey = if (isEnd) -1 else page + 1
-            Log.d(TAG, "nextKey: $nextKey  isEnd: $isEnd   size: ${remoteData.size}")
             db.GithubProjectDao().insert(remoteData)
+
+            Log.d(TAG, "isEnd: $isEnd  size: ${remoteData.size}  / nextKey: $nextKey  / pageKey: $pageKey  / page: $page")
+
             return MediatorResult.Success(isEnd)
 
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             return MediatorResult.Error(e)
         }
     }

@@ -16,6 +16,9 @@ interface GithubProjectDao {
     @Query("SELECT * FROM GithubProjectTable")
     fun get(): PagingSource<Int, GithubProjectEntity>
 
+    @Query("SELECT * FROM GithubProjectTable")
+    fun get2(): List<GithubProjectEntity>
+
     @Query("DELETE FROM GithubProjectTable")
     suspend fun clear()
 

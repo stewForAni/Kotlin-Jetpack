@@ -23,6 +23,7 @@ class GithubProjectPagingSource : PagingSource<Int, GithubProjectItem>() {
             val response = RetrofitManager.getApisTool().getGithubProject(page, pageSize)
             val prevKey = if (page > 1) page - 1 else null
             val nextKey = if (response.items.isNotEmpty()) page + 1 else null
+            Log.d("paging3 test", "PagingSource load")
             LoadResult.Page(response.items, prevKey, nextKey)
         } catch (e: Exception) {
             LoadResult.Error(e)

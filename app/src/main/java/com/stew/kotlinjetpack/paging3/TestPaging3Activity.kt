@@ -1,6 +1,7 @@
 package com.stew.kotlinjetpack.paging3
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -38,6 +39,7 @@ class TestPaging3Activity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             githubViewModel.getData().collect {
+                Log.d("paging3 test", "collect")
                 adapter.submitData(it)
             }
         }

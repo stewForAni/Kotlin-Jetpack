@@ -20,7 +20,7 @@ object MyRepository {
 
     fun getData(): Flow<PagingData<GithubProjectEntity>> {
         return Pager(
-                config = PagingConfig(pageSize = 10,
+                config = PagingConfig(pageSize = 20,
                         enablePlaceholders = false,
                         prefetchDistance = 5,
                         initialLoadSize = 20,

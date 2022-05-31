@@ -10,16 +10,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
-import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stew.kotlinjetpack.R
-import com.stew.kotlinjetpack.apisample.RetrofitManager
 import com.stew.kotlinjetpack.databinding.ActivityPaging2Binding
-import com.stew.kotlinjetpack.databinding.ActivityPagingBinding
-import com.stew.kotlinjetpack.paging3.GithubProjectViewmodel
-import com.stew.kotlinjetpack.paging3.adapter.GithubProjectAdapter
-import com.stew.kotlinjetpack.paging3.adapter.LoadingDataAdapter
-import com.stew.kotlinjetpack.room.AppDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
@@ -70,12 +63,7 @@ class TestRemoteMediatorActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        lifecycleScope.launch(Dispatchers.IO) {
-            AppDatabase.getInstance().GithubProjectDao().clear()
-        }
-    }
 }
