@@ -9,10 +9,12 @@ import com.stew.kotlinjetpack.apisample.RetrofitManager
 import com.stew.kotlinjetpack.room.AppDatabase
 import com.stew.kotlinjetpack.room.githubproject.GithubProjectEntity
 
+
 /**
  * Created by stew on 5/29/22.
  * mail: stewforani@gmail.com
  */
+
 @OptIn(ExperimentalPagingApi::class)
 class MyRemoteMediator(
     private val db: AppDatabase,
@@ -50,17 +52,19 @@ class MyRemoteMediator(
                 }
             }
 
-            Log.d(TAG, "nextKey: $nextKey")
+
 
             val page = pageKey ?: 1
-            val remoteData = RetrofitManager.getApisTool().getGithubProject2(page, 5).items
+            Log.d(TAG, "nextKey: $nextKey  pageKey: $pageKey page: $page")
+            val remoteData = RetrofitManager.getApisTool().getGithubProject2(page, 10).items
             val isEnd = remoteData.isEmpty()
 
             if (loadType == LoadType.REFRESH) {
                 db.GithubProjectDao().clear()
             }
-            nextKey = if (isEnd) -1 else page + 1
 
+            nextKey = if (isEnd) -1 else page + 1
+            Log.d(TAG, "nextKey: $nextKey  isEnd: $isEnd   size: ${remoteData.size}")
             db.GithubProjectDao().insert(remoteData)
             return MediatorResult.Success(isEnd)
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.paging.ExperimentalPagingApi
 import com.stew.kotlinjetpack.apisample.RetrofitManager
 import com.stew.kotlinjetpack.coroutine.TestCoroutineActivity
 import com.stew.kotlinjetpack.databinding.TestDataBindingActivity
@@ -23,6 +24,7 @@ import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
 import com.stew.kotlinjetpack.viewpager.TestViewPagerActivity
 
 class MainActivity : AppCompatActivity() {
+    @ExperimentalPagingApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

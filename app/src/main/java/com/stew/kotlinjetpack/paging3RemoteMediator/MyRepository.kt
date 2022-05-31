@@ -14,17 +14,21 @@ import kotlinx.coroutines.flow.Flow
  */
 
 @ExperimentalPagingApi
-class MyRepository {
+object MyRepository {
 
     private val db = AppDatabase.getInstance()
 
     fun getData(): Flow<PagingData<GithubProjectEntity>> {
         return Pager(
-            config = PagingConfig(pageSize = 10),
-            remoteMediator = MyRemoteMediator(db),
-            pagingSourceFactory = {
-                db.GithubProjectDao().get()
-            }
+                config = PagingConfig(pageSize = 10,
+                        enablePlaceholders = false,
+                        prefetchDistance = 5,
+                        initialLoadSize = 20,
+                        maxSize = 30),
+                remoteMediator = MyRemoteMediator(db),
+                pagingSourceFactory = {
+                    db.GithubProjectDao().get()
+                }
         ).flow
     }
 
