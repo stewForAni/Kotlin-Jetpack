@@ -17,13 +17,13 @@
         app:itemIconTint="@drawable/selector_bottom_navigation"
         app:itemTextColor="@drawable/selector_bottom_navigation"/>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/my_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation" />
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/my_fragment"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginBottom="60dp"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:navGraph="@navigation/navigation" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

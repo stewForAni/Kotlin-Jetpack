@@ -37,6 +37,7 @@ class TestLiveDataActivity : AppCompatActivity() {
             Log.d(TAG, "MyLiveData onChanged : $it")
         })
 
+
         Log.d(TAG, "onCreate: ")
 //        livedata.value = "onCreate"
 

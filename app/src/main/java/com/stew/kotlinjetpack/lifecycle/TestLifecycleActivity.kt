@@ -21,6 +21,7 @@ class TestLifecycleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lifecycle)
         lifecycle.addObserver(MyObserver())
+        Log.d(TAG, "onCreate: " + lifecycle.currentState)
     }
 
     override fun onStart() {
@@ -60,11 +61,11 @@ class TestLifecycleActivity : AppCompatActivity() {
         }
         @OnLifecycleEvent(value = Lifecycle.Event.ON_RESUME)
         fun fun2(owner: LifecycleOwner) {
-            Log.d("TestLifecycleActivity", "ON_RESUME")
+            Log.d("TestLifecycleActivity", "ON_RESUME / "+owner.lifecycle.currentState)
         }
         @OnLifecycleEvent(value = Lifecycle.Event.ON_PAUSE)
-        fun fun3() {
-            Log.d("TestLifecycleActivity", "ON_PAUSE")
+        fun fun3(owner: LifecycleOwner) {
+            Log.d("TestLifecycleActivity", "ON_PAUSE / "+owner.lifecycle.currentState)
         }
         @OnLifecycleEvent(value = Lifecycle.Event.ON_STOP)
         fun fun4() {
