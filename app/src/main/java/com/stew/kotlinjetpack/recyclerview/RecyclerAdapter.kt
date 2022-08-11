@@ -16,7 +16,7 @@ import com.stew.kotlinjetpack.R
  * Created by stew on 5/21/22.
  * mail: stewforani@gmail.com
  */
-class RecyclerAdapter() :
+class RecyclerAdapter:
     RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     private val diff: AsyncListDiffer<Info>
@@ -34,9 +34,9 @@ class RecyclerAdapter() :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         Log.d("RecyclerAdapter", "onBindViewHolder: $position")
-        var data = diff.currentList[position]
-        holder.name?.text = data.name
-        holder.image?.setImageResource(data.image)
+        val data = diff.currentList[position]
+        holder.name.text = data.name
+        holder.image.setImageResource(data.image)
     }
 
     override fun getItemCount(): Int {
@@ -48,13 +48,8 @@ class RecyclerAdapter() :
     }
 
     class MyViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-        var name: TextView? = null
-        var image: ImageView? = null
-
-        init {
-            name = item.findViewById(R.id.textView)
-            image = item.findViewById(R.id.imageView)
-        }
+        var name: TextView = item.findViewById(R.id.textView)
+        var image: ImageView = item.findViewById(R.id.imageView)
     }
 
     class MyCallback : DiffUtil.ItemCallback<Info>() {
