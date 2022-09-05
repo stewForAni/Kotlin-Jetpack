@@ -41,7 +41,6 @@ class TestLiveDataActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: ")
 //        livedata.value = "onCreate"
 
-        MyLiveData.get().value = "onCreate"
     }
 
     override fun onStart() {
@@ -55,7 +54,11 @@ class TestLiveDataActivity : AppCompatActivity() {
         super.onResume()
         Log.d(TAG, "onResume: ")
 //        livedata.value = "onResume"
-        MyLiveData.get().value = "onResume"
+        MyLiveData.get().value = "onResume1"
+        MyLiveData.get().value = "onResume2"
+        MyLiveData.get().value = "onResume3"
+        MyLiveData.get().value = "onResume4"
+        MyLiveData.get().value = "onResume5"
     }
 
     override fun onPause() {

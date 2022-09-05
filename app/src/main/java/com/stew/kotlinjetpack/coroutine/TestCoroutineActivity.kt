@@ -2,6 +2,7 @@ package com.stew.kotlinjetpack.coroutine
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.stew.kotlinjetpack.R
 import com.stew.kotlinjetpack.apisample.Apis
@@ -36,7 +37,6 @@ class TestCoroutineActivity : AppCompatActivity() {
 //        }
 
 
-
 //        GlobalScope.launch {
 //            Log.d(TAG, "GlobalScope.launch: " + Thread.currentThread())
 //            val job = launch {
@@ -59,6 +59,49 @@ class TestCoroutineActivity : AppCompatActivity() {
 //            Log.d(TAG, "GlobalScope.async: " + Thread.currentThread())
 //        }
 
+        findViewById<Button>(R.id.button).setOnClickListener {
+            Log.d(TAG, "999999-1")
+            f9()
+            Log.d(TAG, "999999-2")
+        }
+
 
     }
+    private fun f9() {
+        f0()
+    }
+    private fun f0() {
+        Log.d(TAG, "999999-3")
+        runBlocking {
+            launch{
+                Log.d(TAG, "1")
+                f1()
+                Log.d(TAG, "2")
+            }
+        }
+        Log.d(TAG, "999999-4")
+    }
+
+    suspend fun f1() {
+        Log.d(TAG, "3")
+        f2()
+        Log.d(TAG, "4")
+    }
+
+    suspend fun f2() {
+        Log.d(TAG, "5")
+        f3()
+        Log.d(TAG, "6")
+    }
+
+    suspend fun f3() {
+        Log.d(TAG, "7")
+        withContext(Dispatchers.IO) {
+            Log.d(TAG, "###1")
+            Log.d(TAG, "###2")
+        }
+        Log.d(TAG, "8")
+    }
+
+
 }
