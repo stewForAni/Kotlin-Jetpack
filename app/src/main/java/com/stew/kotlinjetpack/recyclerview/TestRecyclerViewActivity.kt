@@ -23,7 +23,9 @@ class TestRecyclerViewActivity : AppCompatActivity() {
         }
         val binding: ActivityRecyclerBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_recycler)
-        binding.recycler.layoutManager = LinearLayoutManager(this)
+
+        val llm = LinearLayoutManager(this)
+        binding.recycler.layoutManager = llm
         val a = RecyclerAdapter()
         binding.recycler.adapter = a
         a.setData(list)

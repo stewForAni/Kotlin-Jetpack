@@ -24,9 +24,14 @@ import com.stew.kotlinjetpack.room.TestRoomActivity
 import com.stew.kotlinjetpack.viewmodel.TestSharedViewModelActivity
 import com.stew.kotlinjetpack.viewmodel.TestViewModelActivity
 import com.stew.kotlinjetpack.viewpager.TestViewPagerActivity
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import java.util.concurrent.ArrayBlockingQueue
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalPagingApi
@@ -91,12 +96,119 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.tx15).setOnClickListener {
-            startActivity(Intent(this, TestRemoteMediatorActivity::class.java))
+//            startActivity(Intent(this, TestRemoteMediatorActivity::class.java))
+
+//            runBlocking {
+//                GlobalScope.launch {
+//                    println("======delay 1s  start")
+//                    delay(1000)
+//                    println("======delay 1s end")
+//                }
+//
+//                println("======delay 3s start")
+//                delay(1000)
+//                println("======delay 3s end")
+//            }
         }
 
         //kotlin test --------------------------------------------------------------------
 
+//        runBlocking {
+//            println("======runBlocking start")
+//            delay(1000)
+//            println("======runBlocking end")
+//        }
+//
+//        GlobalScope.launch {
+//            println("======launch start")
+//            delay(1000)
+//            println("======launch end")
+//        }
+//
+//        GlobalScope.async {
+//            println("======async start")
+//            delay(1000)
+//            println("======async end")
+//        }
+//
+//        println("======async main")
+
+        runBlocking {
+            flow {
+                (1..5).forEach {
+                    delay(200)
+                    println("emit$it,${System.currentTimeMillis()},${Thread.currentThread().name}")
+                    emit(it)
+                }
+            }.buffer().collect {
+                delay(500)
+                println("collect$it,${System.currentTimeMillis()},${Thread.currentThread().name}")
+            }
+        }
+
         //kotlin test --------------------------------------------------------------------
+    }
+
+    fun testChannel() {
+        //协程1
+        var deferred = GlobalScope.async {
+
+            Thread.sleep(2000)
+            "Hello fishforest"
+        }
+        //协程2
+        GlobalScope.launch {
+
+            var result = deferred.await()
+            println("get result from coroutine1： $result")
+        }
+    }
+
+    fun testChannel2() {
+        //阻塞队列
+        var queue = ArrayBlockingQueue<String>(5)
+        //协程1
+        GlobalScope.launch {
+            var count = 0
+            while (true) {
+                println("1-----------")
+                Thread.sleep(1000)
+                queue.put("fish ${count++}")
+            }
+        }
+
+        //协程2
+        GlobalScope.launch {
+            while (true) {
+                println("2-----------")
+                Thread.sleep(1000)
+                println("get result from coroutine1：${queue.take()}")
+            }
+        }
+    }
+
+    fun testChannel3() {
+        //定义Channel
+        var channel = Channel<String>()
+        //协程1
+        GlobalScope.launch {
+            var count = 0
+            while (true) {
+                //假装在加工数据
+                Thread.sleep(1000)
+                var sendStr = "fish ${count++}"
+                println("send $sendStr")
+                channel.send("$sendStr")
+            }
+        }
+
+        //协程2
+        GlobalScope.launch {
+            while (true) {
+                Thread.sleep(1000)
+                println("receive：${channel.receive()}")
+            }
+        }
     }
 
 }
